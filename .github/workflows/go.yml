@@ -1,0 +1,13 @@
+name: Test dependencies for security issues with Snyk
+
+on: 
+  push
+
+jobs:
+  dependencies-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: snyk/actions/golang@master
+      env:
+        SNYK_TOKEN: ${{secrets.SNYK_TOKEN}}
